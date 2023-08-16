@@ -1,0 +1,21 @@
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\bin\Debug\net7.0-windows\Venda Bovina.exe
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\bin\Debug\net7.0-windows\Venda Bovina.deps.json
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\bin\Debug\net7.0-windows\Venda Bovina.runtimeconfig.json
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\bin\Debug\net7.0-windows\Venda Bovina.dll
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\bin\Debug\net7.0-windows\Venda Bovina.pdb
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.csproj.AssemblyReference.cache
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.Form1.resources
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.Properties.Resources.resources
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.csproj.GenerateResource.cache
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.AssemblyInfoInputs.cache
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.AssemblyInfo.cs
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.csproj.CoreCompileInputs.cache
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.dll
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\refint\Venda Bovina.dll
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.pdb
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.genruntimeconfig.cache
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\ref\Venda Bovina.dll
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.Tela_Venda.resources
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\WF_ModerUI.FormMenu.resources
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.FormVenda.resources
