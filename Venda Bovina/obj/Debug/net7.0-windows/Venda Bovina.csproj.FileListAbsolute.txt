@@ -4,7 +4,6 @@ C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\bin\Debug\net7.0-windows\V
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\bin\Debug\net7.0-windows\Venda Bovina.dll
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\bin\Debug\net7.0-windows\Venda Bovina.pdb
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.csproj.AssemblyReference.cache
-C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.Form1.resources
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.Properties.Resources.resources
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.csproj.GenerateResource.cache
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.GeneratedMSBuildEditorConfig.editorconfig
@@ -16,6 +15,8 @@ C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\r
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.pdb
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.genruntimeconfig.cache
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\ref\Venda Bovina.dll
-C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.Tela_Venda.resources
-C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\WF_ModerUI.FormMenu.resources
-C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.FormVenda.resources
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.FormInicial.resources
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.FormCadastroRebanho.resources
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.FormRebanho.resources
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.FormCadastroUsuario.resources
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Cadastro_Rebanho.resources

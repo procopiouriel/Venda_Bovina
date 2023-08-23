@@ -15,6 +15,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Telas\FormRebanho.cs" />
+    <Compile Update="Telas\FormCadastroRebanho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Telas\FormInicial.cs" />
+    <Compile Update="Telas\FormCadastroUsuario.cs" />
   </ItemGroup>
 
   <ItemGroup>
