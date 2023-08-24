@@ -458,7 +458,7 @@ namespace Venda_Bovina
             btn_cadastrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_cadastrar.ForeColor = Color.Black;
             btn_cadastrar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_cadastrar.Location = new Point(96, 396);
+            btn_cadastrar.Location = new Point(96, 379);
             btn_cadastrar.Margin = new Padding(4, 3, 4, 3);
             btn_cadastrar.Name = "btn_cadastrar";
             btn_cadastrar.Size = new Size(182, 60);

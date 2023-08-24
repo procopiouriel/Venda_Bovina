@@ -1,0 +1,18 @@
+[
+  {
+    "numeracao": 0,
+    "tipo": "Égua",
+    "animal": "Equinos",
+    "sexo": "Femea",
+    "raca": "22",
+    "idade": 22,
+    "comprimento": 2.0,
+    "coloracao": "Branco",
+    "registro": "Sim",
+    "altura": 2.0,
+    "marca": "DD",
+    "genetica": 2.0,
+    "preco": 160000.0,
+    "peso": 2.0
+  }
+]

@@ -1,56 +1,95 @@
-﻿
-using System;
+﻿using System.Reflection.Metadata.Ecma335;
 using System.Windows.Forms;
-
 public static class Validacoes
 {
     public static bool ValidaCPF(string cpf)
     {
-        
         cpf = cpf.Replace(".", "");
         cpf = cpf.Replace("-", "");
+        int soma = 0;
+        int soma1 = 0;
+        int pd;
+        int sd = 0;
+        double resto = 0;
+        double resto1 = 0;
+        double ver = 0;
+        double veri = 0;
+        int[] somaT;
         if (cpf.Length != 11)
         {
             return false;
         }
-        else
+
+
+        for (int i = 10; i >= 2; i--)
         {
-            int soma = 0;
-            int soma2 = 0;
-            for (int i = 0; i < cpf.Length - 1; i++)
+            for (int j = 0; j <= cpf.Length - 3; j++)
             {
-                if (i < 9)
-                {
-                    soma += Convert.ToInt32(cpf[i].ToString()) * (10 - i);
-                }
-                soma2 += Convert.ToInt32(cpf[i].ToString()) * (11 - i);
+                pd = Convert.ToInt32(cpf[j].ToString()) * i--;
+                soma += pd;
+
+
+
             }
 
-            int resto = soma % 11;
-            if (resto < 2 && Convert.ToInt32(cpf[9].ToString()) != 0)
+        }
+        resto = soma % 11;
+        if (resto < 2)
+        {
+            if (Convert.ToInt32(cpf[9].ToString()) != 0)
             {
+                MessageBox.Show("CPF inválido");
                 return false;
-            }
-            else
-            {
-                if (Convert.ToInt32(cpf[9].ToString()) != (11 - resto))
-                {
-                    return false;
-                }
-            }
-            int resto2 = soma2 % 11;
-            if (resto2 < 2 && Convert.ToInt32(cpf[10].ToString()) != 0)
-            {
-                return false;
-            }
-            else
-            {
-                if (Convert.ToInt32(cpf[10].ToString()) != (11 - resto2))
-                {
-                    return false;
-                }
             }
         }
+        else
+        {
+            ver = 11 - resto;
+            if (Convert.ToInt32(cpf[9].ToString()) != ver)
+            {
+                MessageBox.Show("CPF inválido");
+                return false;
+            }
+        }
+
+
+
+
+
+
+
+        for (int l = 11; l >= 2; l--)
+        {
+            for (int k = 0; k <= cpf.Length - 2; k++)
+            {
+                sd = (Convert.ToInt32(cpf[k].ToString()) * l--);
+                soma1 += sd;
+
+
+            }
+
+        }
+        resto1 = soma1 % 11;
+        if (resto1 < 2)
+        {
+            if (Convert.ToInt32(cpf[10].ToString()) != 0)
+            {
+                MessageBox.Show("CPF inválido");
+                return false;
+            }
+        }
+        else
+        {
+            veri = 11 - resto1;
+            if (Convert.ToInt32(cpf[10].ToString()) != veri)
+            {
+                MessageBox.Show("CPF inválido");
+                return false;
+            }
+        }
+
+        MessageBox.Show("CPF válido");
         return true;
+
     }
 }

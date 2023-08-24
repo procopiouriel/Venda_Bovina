@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Onibus;
 using System.Runtime.CompilerServices;
 using Venda_Bovina;
 
@@ -140,6 +139,7 @@ public class Cadastro_Rebanho
 
 
 
+
     public bool JsonSerealizarLista(List<Cadastro_Rebanho> lista, string path)
     {
         var strJson = JsonConvert.SerializeObject(lista, Formatting.Indented);
@@ -162,6 +162,7 @@ public class Cadastro_Rebanho
             return "Falha: " + ex.Message;
         }    
     }
+
     public static List<Cadastro_Rebanho> JsonDesserealizarLista(string path)
     {
         var strJson = OpenFileEmpresa(path);
