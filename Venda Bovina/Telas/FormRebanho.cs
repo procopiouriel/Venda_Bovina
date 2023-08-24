@@ -13,18 +13,14 @@ namespace Venda_Bovina
 {
     public partial class FormRebanho : Form
     {
-        public List<Cadastro_Rebanho> rebanho = new List<Cadastro_Rebanho>();
         public FormRebanho()
         {
             try
             {
                 InitializeComponent();
-
-
                 foreach (Cadastro_Rebanho str in Program.rebanho)
                 {
-                    //MessageBox.Show("uauaua " + Cadastro_Rebanho.PreçoRebanho(str.peso, str.animal, str.sexo, str.idade).ToString());
-                    dataGridView1.Rows.Add(Cadastro_Rebanho.Sexo(str.animal, str.sexo, str.idade), str.raca, FormInicial.numeracao, str.idade, str.comprimento, str.coloracao, str.registro, str.altura, str.marca, str.genetica, Cadastro_Rebanho.PreçoRebanho(str.peso, str.animal, str.sexo, str.idade).ToString(), str.peso);
+                    dataGridView1.Rows.Add(Cadastro_Rebanho.Sexo(str.animal, str.sexo, str.idade), str.numeracao, str.raca, str.idade, str.comprimento, str.coloracao, str.registro, str.altura, str.marca, str.genetica, Cadastro_Rebanho.PrecoRebanho(str.peso, str.animal, str.sexo, str.idade, str.genetica).ToString("C2"), str.peso);
                 }
 
             }
@@ -58,6 +54,7 @@ namespace Venda_Bovina
         private void button1_Click(object sender, EventArgs e)
         {
             FormInicial conexao = new FormInicial();
+
             this.Close();
             conexao.Visible = true;
         }
@@ -78,17 +75,18 @@ namespace Venda_Bovina
             {
                 int index = dataGridView1.SelectedRows[0].Index;
 
-                if (Program.botaoFoto.Count != 0)
+                if (index >= 0 && index < Program.botaoFoto.Count)
                 {
+
                     btn_foto.BackgroundImage = Program.botaoFoto[index].BackgroundImage;
                     btn_foto.BackgroundImageLayout = Program.botaoFoto[index].BackgroundImageLayout;
+
+
                 }
                 else
                 {
-
+                    MessageBox.Show("Este animal não possui imagens registradas!");
                 }
-  
-
             }
         }
     }

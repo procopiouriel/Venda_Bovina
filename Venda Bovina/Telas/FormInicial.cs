@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,20 +14,31 @@ namespace Venda_Bovina
 {
     public partial class FormInicial : Form
     {
-        public static int numeracao = 1;
-        Cadastro_Rebanho conexao = new Cadastro_Rebanho();
         public FormInicial()
         {
             InitializeComponent();
+
+            foreach (Fazendeiro str in Program.usuarios)
+            {
+                lbl_nomeUsuario.Text = Fazendeiro.PrimeiroNome(str.Nome);
+                dataGridView1.Rows.Add(str.Nome, Fazendeiro.Cpf, str.Idade, str.Cnpj, str.PropriedadeR, str.CabecaG, str.Marca);
+            }
+
+            if (Program.botaoFotoUsuario.Count == 1)
+            {
+                picture_fotoUsuario.BackgroundImage = Program.botaoFotoUsuario[0].BackgroundImage;
+                picture_fotoUsuario.BackgroundImageLayout = Program.botaoFotoUsuario[0].BackgroundImageLayout;
+
+            }
+            else
+            {
+
+            }
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
-
             this.Close();
-
-
-
         }
 
         private void btnMaximizar_Click(object sender, EventArgs e)
@@ -58,16 +70,13 @@ namespace Venda_Bovina
                 FormCadastroRebanho conexao1 = new FormCadastroRebanho();
                 this.Visible = false;
                 conexao1.ShowDialog();
-                Cadastro_Rebanho.numeracao = numeracao;
-
-                numeracao++;
             }
             catch (Exception ex)
             {
 
             }
 
-           
+
         }
 
         private void button2_Click(object sender, EventArgs e)

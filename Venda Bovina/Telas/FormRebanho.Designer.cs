@@ -36,8 +36,8 @@ namespace Venda_Bovina
             button3 = new Button();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
@@ -156,16 +156,15 @@ namespace Venda_Bovina
             panelMenu.Location = new Point(0, 46);
             panelMenu.Margin = new Padding(4, 3, 4, 3);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(159, 567);
+            panelMenu.Size = new Size(286, 567);
             panelMenu.TabIndex = 1;
             // 
             // btn_foto
             // 
             btn_foto.Location = new Point(12, 6);
             btn_foto.Name = "btn_foto";
-            btn_foto.Size = new Size(131, 128);
+            btn_foto.Size = new Size(267, 230);
             btn_foto.TabIndex = 0;
-            btn_foto.Text = "button2";
             btn_foto.UseVisualStyleBackColor = true;
             // 
             // panelConteudo
@@ -173,10 +172,10 @@ namespace Venda_Bovina
             panelConteudo.Controls.Add(button3);
             panelConteudo.Controls.Add(dataGridView1);
             panelConteudo.Dock = DockStyle.Fill;
-            panelConteudo.Location = new Point(159, 46);
+            panelConteudo.Location = new Point(286, 46);
             panelConteudo.Margin = new Padding(4, 3, 4, 3);
             panelConteudo.Name = "panelConteudo";
-            panelConteudo.Size = new Size(774, 567);
+            panelConteudo.Size = new Size(647, 567);
             panelConteudo.TabIndex = 2;
             // 
             // button3
@@ -189,7 +188,7 @@ namespace Venda_Bovina
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button3.ForeColor = Color.Black;
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(8, 370);
+            button3.Location = new Point(4, 510);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(184, 45);
@@ -201,11 +200,11 @@ namespace Venda_Bovina
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11, Column12, Column13 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column4, Column3, Column5, Column6, Column7, Column8, Column9, Column10, Column11, Column12, Column13 });
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(774, 338);
+            dataGridView1.Size = new Size(774, 443);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -214,19 +213,19 @@ namespace Venda_Bovina
             Column1.HeaderText = "Animal";
             Column1.Name = "Column1";
             // 
-            // Column3
-            // 
-            Column3.HeaderText = "Raça";
-            Column3.Name = "Column3";
-            // 
             // Column4
             // 
             Column4.HeaderText = "Numeração";
             Column4.Name = "Column4";
             // 
+            // Column3
+            // 
+            Column3.HeaderText = "Raça";
+            Column3.Name = "Column3";
+            // 
             // Column5
             // 
-            Column5.HeaderText = "Idade";
+            Column5.HeaderText = "Idade (Meses)";
             Column5.Name = "Column5";
             // 
             // Column6
@@ -305,9 +304,11 @@ namespace Venda_Bovina
         private Button button1;
         private Label label1;
         public DataGridView dataGridView1;
+        private Button btn_foto;
+        private Button button3;
         private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column7;
@@ -317,7 +318,5 @@ namespace Venda_Bovina
         private DataGridViewTextBoxColumn Column11;
         private DataGridViewTextBoxColumn Column12;
         private DataGridViewTextBoxColumn Column13;
-        private Button btn_foto;
-        private Button button3;
     }
 }

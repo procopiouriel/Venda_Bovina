@@ -10,7 +10,7 @@ public class Cadastro_Rebanho
 
     public  string Qani { get; set; }
 
-    public static int numeracao { get; set; }
+    public int numeracao = 0;
     public  string raca { get; set; }
     public  int idade { get; set; }
     public  double comprimento { get; set; }
@@ -30,11 +30,11 @@ public class Cadastro_Rebanho
     {
         
     }
-    public Cadastro_Rebanho(string tipo, string sexo, int numeracao, string raca, int idade, double comprimento, string coloracao, string registro, double altura, string marca, double genetica, double peso)
+    public Cadastro_Rebanho(int numeracao, string tipo, string sexo, string raca, int idade, double comprimento, string coloracao, string registro, double altura, string marca, double genetica, double peso, double preco)
     {
+        this.numeracao = numeracao;
         this.animal = tipo;
         this.sexo = sexo;
-        Cadastro_Rebanho.numeracao = numeracao;
         this.raca = raca;
         this.idade = idade;
         this.comprimento = comprimento;
@@ -44,7 +44,13 @@ public class Cadastro_Rebanho
         this.marca = marca;
         this.genetica = genetica;
         this.peso = peso;
+        this.preco = preco;
     }
+
+
+
+
+
 
     public static string Sexo(string tipo, string sexo, int idade)
     {
@@ -61,23 +67,27 @@ public class Cadastro_Rebanho
                 }
             }
 
-            else if (tipo == "Bovinos")
+        else if (tipo == "Bovinos")
+        {
+            if (idade >= 12 && sexo == "Femea")
             {
-                if (sexo == "Femea")
-                {
-                    Cadastro_Rebanho.respostaFinal = "Vaca";
-                }
-                else if (sexo != "Femea")
-                {
-                    Cadastro_Rebanho.respostaFinal = "Boi";
-                }
-                else if (idade < 1)
-                {
-                    Cadastro_Rebanho.respostaFinal = "Bezerro";
-                }
+                Cadastro_Rebanho.respostaFinal = "Vaca";
             }
+            else if (idade >= 12 && sexo != "Femea")
+            {
+                Cadastro_Rebanho.respostaFinal = "Boi";
+            }
+            else if (idade < 12 && sexo == "Macho")
+            {
+                Cadastro_Rebanho.respostaFinal = "Bezerro";
+            }
+            else if (idade < 12 && sexo == "Femea")
+            {
+                Cadastro_Rebanho.respostaFinal = "Bezerra";
+            }
+        }
 
-            else if (tipo == "Equinos")
+        else if (tipo == "Equinos")
             {
                 if (sexo == "Femea")
                 {
@@ -104,10 +114,10 @@ public class Cadastro_Rebanho
         return "Animal não Registrado";
     }
 
-    public static double PreçoRebanho(double pesoRebanho, string tipo, string sexo, int idade)
+    public static double PrecoRebanho(double pesoRebanho, string tipo, string sexo, int idade, double genetica)
     {
         double ValorRebanho = 0;
-        int pesoArroba = Convert.ToInt32(pesoRebanho / 15);//1kg = 15 arrobas
+        double pesoArroba = pesoRebanho / 15;//1kg = 15 arrobas
 
         if (Cadastro_Rebanho.Sexo(tipo, sexo, idade) == "Boi")
         {
@@ -117,12 +127,16 @@ public class Cadastro_Rebanho
         {
             ValorRebanho = pesoArroba * 167.98;
         }
-        if (Cadastro_Rebanho.Sexo(tipo, sexo, idade) == "Bezerro")
+        if (Cadastro_Rebanho.Sexo(tipo, sexo, idade) == "Bezerro" || Cadastro_Rebanho.Sexo(tipo, sexo, idade) == "Bezerra")
         {
             ValorRebanho = pesoArroba * 190.80;
         }
-        MessageBox.Show(ValorRebanho.ToString());
 
+        if (tipo == "Equinos" || tipo == "Muares")
+        {
+            ValorRebanho = genetica * 80000;
+            return ValorRebanho;
+        }
         return ValorRebanho;
     }
 

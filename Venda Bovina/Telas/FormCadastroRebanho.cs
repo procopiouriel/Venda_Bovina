@@ -15,22 +15,32 @@ namespace Venda_Bovina
 {
     public partial class FormCadastroRebanho : Form
     {
-
+        public static int numeracao = 0;
         public FormCadastroRebanho()
         {
             try
             {
                 InitializeComponent();
-                Cadastro_Rebanho conexao = new Cadastro_Rebanho();
-                txt_numeracao.Text = Cadastro_Rebanho.numeracao.ToString();
-                MessageBox.Show(Cadastro_Rebanho.numeracao.ToString());
+
+                if (Program.rebanho.Count == 0)//SE NA LISTA REBANHO TIVER 0 VALORES
+                {
+                    txt_numeracao.Text = "0";
+                }
+                else
+                {
+                    txt_numeracao.Text = numeracao.ToString();
+                }
+                foreach (Fazendeiro str in Program.usuarios)
+                {
+                    txt_marca.Text = str.Marca.ToString();
+                }
             }
             catch (Exception ex)
             {
-                
+                MessageBox.Show(ex.Message);
             }
 
-           
+
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -53,11 +63,13 @@ namespace Venda_Bovina
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             FormInicial conexao = new FormInicial();
             this.Close();
             conexao.Visible = true;
-            FormInicial.numeracao--;
-            Cadastro_Rebanho.numeracao = FormInicial.numeracao;
+
+
+
 
         }
 
@@ -75,12 +87,11 @@ namespace Venda_Bovina
         {
             try
             {
+
                 string animal = combo_tipos.Text;
                 string sexo = combo_sexo.Text;
-                int numeracao = Convert.ToInt32(txt_numeracao.Text);
                 string raca = txt_raca.Text;
                 int idade = Convert.ToInt32(txt_idade.Text);
-
                 double comprimento = Convert.ToDouble(txt_comprimento.Text);
                 string coloracao = combo_coloracao.Text;
                 string registro = combo_registro.Text;
@@ -88,11 +99,13 @@ namespace Venda_Bovina
                 string marca = txt_marca.Text;
                 double genetica = Convert.ToDouble(txt_genetica.Text);
                 double peso = Convert.ToDouble(txt_peso.Text);
+                double preco = Cadastro_Rebanho.PrecoRebanho(peso, animal, sexo, idade, genetica);
 
-                Cadastro_Rebanho conexao = new Cadastro_Rebanho(animal, sexo, numeracao, raca, idade, comprimento, coloracao, registro, altura, marca, genetica, peso);
+                Cadastro_Rebanho conexao = new Cadastro_Rebanho(numeracao, animal, sexo, raca, idade, comprimento, coloracao, registro, altura, marca, genetica, preco, peso);
                 Program.rebanho.Add(conexao);
 
                 MessageBox.Show("Animal registrado com exito!");
+                numeracao++;
 
                 FormRebanho conexao1 = new FormRebanho();
                 this.Close();
@@ -184,7 +197,7 @@ namespace Venda_Bovina
             {
 
             }
-            
+
 
 
 
@@ -213,6 +226,11 @@ namespace Venda_Bovina
 
         private void txt_idade_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void label6_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -31,23 +31,30 @@ namespace Venda_Bovina
             btnMaximizar = new Button();
             panelMenu = new Panel();
             panelConteudo = new Panel();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            maskedTextBox1 = new MaskedTextBox();
-            textBox4 = new TextBox();
-            maskedTextBox2 = new MaskedTextBox();
-            textBox5 = new TextBox();
+            img_cnpj = new PictureBox();
+            img_cpf = new PictureBox();
+            button2 = new Button();
+            btn_fotoUsuario = new Button();
             btnVendas = new Button();
+            txt_quantidadeCabecas = new TextBox();
+            txt_cnpj = new MaskedTextBox();
+            txt_idade = new TextBox();
+            txt_cpf = new MaskedTextBox();
+            txt_marca = new TextBox();
+            txt_areaTerreno = new TextBox();
+            txt_nome = new TextBox();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            openFileDialog1 = new OpenFileDialog();
             panelCabecalho.SuspendLayout();
             panelConteudo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)img_cnpj).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)img_cpf).BeginInit();
             SuspendLayout();
             // 
             // panelCabecalho
@@ -73,9 +80,9 @@ namespace Venda_Bovina
             label1.Location = new Point(68, 9);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(99, 30);
+            label1.Size = new Size(180, 30);
             label1.TabIndex = 2;
-            label1.Text = "Cadastro";
+            label1.Text = "Cadastro Usuario";
             // 
             // button1
             // 
@@ -157,14 +164,18 @@ namespace Venda_Bovina
             // 
             // panelConteudo
             // 
+            panelConteudo.Controls.Add(img_cnpj);
+            panelConteudo.Controls.Add(img_cpf);
+            panelConteudo.Controls.Add(button2);
+            panelConteudo.Controls.Add(btn_fotoUsuario);
             panelConteudo.Controls.Add(btnVendas);
-            panelConteudo.Controls.Add(textBox5);
-            panelConteudo.Controls.Add(maskedTextBox2);
-            panelConteudo.Controls.Add(textBox4);
-            panelConteudo.Controls.Add(maskedTextBox1);
-            panelConteudo.Controls.Add(textBox3);
-            panelConteudo.Controls.Add(textBox2);
-            panelConteudo.Controls.Add(textBox1);
+            panelConteudo.Controls.Add(txt_quantidadeCabecas);
+            panelConteudo.Controls.Add(txt_cnpj);
+            panelConteudo.Controls.Add(txt_idade);
+            panelConteudo.Controls.Add(txt_cpf);
+            panelConteudo.Controls.Add(txt_marca);
+            panelConteudo.Controls.Add(txt_areaTerreno);
+            panelConteudo.Controls.Add(txt_nome);
             panelConteudo.Controls.Add(label8);
             panelConteudo.Controls.Add(label7);
             panelConteudo.Controls.Add(label6);
@@ -179,128 +190,50 @@ namespace Venda_Bovina
             panelConteudo.Size = new Size(774, 567);
             panelConteudo.TabIndex = 2;
             // 
-            // label2
+            // img_cnpj
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(7, 12);
-            label2.Name = "label2";
-            label2.Size = new Size(61, 21);
-            label2.TabIndex = 0;
-            label2.Text = "Nome:";
+            img_cnpj.Location = new Point(214, 103);
+            img_cnpj.Name = "img_cnpj";
+            img_cnpj.Size = new Size(24, 23);
+            img_cnpj.TabIndex = 21;
+            img_cnpj.TabStop = false;
             // 
-            // label3
+            // img_cpf
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(7, 57);
-            label3.Name = "label3";
-            label3.Size = new Size(57, 21);
-            label3.TabIndex = 1;
-            label3.Text = "Idade:";
+            img_cpf.BackgroundImageLayout = ImageLayout.Stretch;
+            img_cpf.Image = (Image)resources.GetObject("img_cpf.Image");
+            img_cpf.Location = new Point(143, 59);
+            img_cpf.Name = "img_cpf";
+            img_cpf.Size = new Size(24, 23);
+            img_cpf.TabIndex = 20;
+            img_cpf.TabStop = false;
+            img_cpf.Click += img_cpf_Click;
             // 
-            // label4
+            // button2
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(346, 16);
-            label4.Name = "label4";
-            label4.Size = new Size(42, 21);
-            label4.TabIndex = 2;
-            label4.Text = "CPF:";
+            button2.BackColor = SystemColors.AppWorkspace;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseOverBackColor = Color.Goldenrod;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = Color.Black;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(478, 43);
+            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(101, 30);
+            button2.TabIndex = 19;
+            button2.Text = "Add Foto";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
-            // label5
+            // btn_fotoUsuario
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(346, 59);
-            label5.Name = "label5";
-            label5.Size = new Size(53, 21);
-            label5.TabIndex = 3;
-            label5.Text = "CNPJ:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(3, 103);
-            label6.Name = "label6";
-            label6.Size = new Size(136, 21);
-            label6.TabIndex = 4;
-            label6.Text = "Area De Terreno:";
-            label6.Click += label6_Click;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(346, 103);
-            label7.Name = "label7";
-            label7.Size = new Size(191, 21);
-            label7.TabIndex = 5;
-            label7.Text = "Quantidade de cabeças:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(7, 148);
-            label8.Name = "label8";
-            label8.Size = new Size(105, 21);
-            label8.TabIndex = 6;
-            label8.Text = "Marca Gado:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(93, 14);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 23);
-            textBox1.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(136, 105);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(157, 23);
-            textBox2.TabIndex = 8;
-            // 
-            // textBox3
-            // 
-            textBox3.Enabled = false;
-            textBox3.Location = new Point(108, 148);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(63, 23);
-            textBox3.TabIndex = 9;
-            // 
-            // maskedTextBox1
-            // 
-            maskedTextBox1.Location = new Point(442, 18);
-            maskedTextBox1.Mask = "000.000.000-00";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(157, 23);
-            maskedTextBox1.TabIndex = 10;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(70, 59);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(223, 23);
-            textBox4.TabIndex = 11;
-            // 
-            // maskedTextBox2
-            // 
-            maskedTextBox2.Location = new Point(442, 59);
-            maskedTextBox2.Mask = "000.000.000-00";
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(157, 23);
-            maskedTextBox2.TabIndex = 12;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(543, 105);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(56, 23);
-            textBox5.TabIndex = 13;
+            btn_fotoUsuario.Location = new Point(397, 79);
+            btn_fotoUsuario.Name = "btn_fotoUsuario";
+            btn_fotoUsuario.Size = new Size(267, 230);
+            btn_fotoUsuario.TabIndex = 15;
+            btn_fotoUsuario.UseVisualStyleBackColor = true;
             // 
             // btnVendas
             // 
@@ -311,15 +244,151 @@ namespace Venda_Bovina
             btnVendas.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnVendas.ForeColor = Color.Black;
             btnVendas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVendas.Location = new Point(247, 206);
+            btnVendas.Location = new Point(244, 365);
             btnVendas.Margin = new Padding(4, 3, 4, 3);
             btnVendas.Name = "btnVendas";
             btnVendas.Size = new Size(152, 45);
             btnVendas.TabIndex = 14;
             btnVendas.Text = "Cadastrar";
             btnVendas.UseVisualStyleBackColor = false;
+            btnVendas.Click += btnVendas_Click;
             // 
-            // FormCadastro
+            // txt_quantidadeCabecas
+            // 
+            txt_quantidadeCabecas.Location = new Point(204, 198);
+            txt_quantidadeCabecas.Name = "txt_quantidadeCabecas";
+            txt_quantidadeCabecas.Size = new Size(56, 23);
+            txt_quantidadeCabecas.TabIndex = 13;
+            txt_quantidadeCabecas.TextChanged += txt_quantidadeCabecas_TextChanged;
+            // 
+            // txt_cnpj
+            // 
+            txt_cnpj.Location = new Point(66, 103);
+            txt_cnpj.Mask = "00,000,000/0001-00";
+            txt_cnpj.Name = "txt_cnpj";
+            txt_cnpj.Size = new Size(142, 23);
+            txt_cnpj.TabIndex = 12;
+            txt_cnpj.MaskInputRejected += txt_cnpj_MaskInputRejected;
+            // 
+            // txt_idade
+            // 
+            txt_idade.Location = new Point(66, 153);
+            txt_idade.Name = "txt_idade";
+            txt_idade.Size = new Size(101, 23);
+            txt_idade.TabIndex = 11;
+            txt_idade.TextChanged += txt_idade_TextChanged;
+            // 
+            // txt_cpf
+            // 
+            txt_cpf.Location = new Point(51, 59);
+            txt_cpf.Mask = "000,000,000-00";
+            txt_cpf.Name = "txt_cpf";
+            txt_cpf.Size = new Size(86, 23);
+            txt_cpf.TabIndex = 10;
+            txt_cpf.MaskInputRejected += txt_cpf_MaskInputRejected;
+            // 
+            // txt_marca
+            // 
+            txt_marca.Enabled = false;
+            txt_marca.Location = new Point(118, 290);
+            txt_marca.Name = "txt_marca";
+            txt_marca.Size = new Size(63, 23);
+            txt_marca.TabIndex = 9;
+            txt_marca.TextChanged += txt_marca_TextChanged;
+            // 
+            // txt_areaTerreno
+            // 
+            txt_areaTerreno.Location = new Point(231, 249);
+            txt_areaTerreno.Name = "txt_areaTerreno";
+            txt_areaTerreno.Size = new Size(109, 23);
+            txt_areaTerreno.TabIndex = 8;
+            txt_areaTerreno.TextChanged += txt_areaTerreno_TextChanged;
+            // 
+            // txt_nome
+            // 
+            txt_nome.Location = new Point(153, 10);
+            txt_nome.Name = "txt_nome";
+            txt_nome.Size = new Size(187, 23);
+            txt_nome.TabIndex = 7;
+            txt_nome.TextChanged += txt_nome_TextChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(7, 288);
+            label8.Name = "label8";
+            label8.Size = new Size(105, 21);
+            label8.TabIndex = 6;
+            label8.Text = "Marca Gado:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(7, 196);
+            label7.Name = "label7";
+            label7.Size = new Size(191, 21);
+            label7.TabIndex = 5;
+            label7.Text = "Quantidade de cabeças:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(7, 247);
+            label6.Name = "label6";
+            label6.Size = new Size(224, 21);
+            label6.TabIndex = 4;
+            label6.Text = "Area De Terreno (Alqueires):";
+            label6.Click += label6_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(7, 103);
+            label5.Name = "label5";
+            label5.Size = new Size(53, 21);
+            label5.TabIndex = 3;
+            label5.Text = "CNPJ:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(7, 57);
+            label4.Name = "label4";
+            label4.Size = new Size(42, 21);
+            label4.TabIndex = 2;
+            label4.Text = "CPF:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(7, 151);
+            label3.Name = "label3";
+            label3.Size = new Size(57, 21);
+            label3.TabIndex = 1;
+            label3.Text = "Idade:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(7, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(140, 21);
+            label2.TabIndex = 0;
+            label2.Text = "Nome Completo:";
+            label2.Click += label2_Click;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // FormCadastroUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -329,13 +398,15 @@ namespace Venda_Bovina
             Controls.Add(panelCabecalho);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
-            Name = "FormCadastro";
+            Name = "FormCadastroUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             panelCabecalho.ResumeLayout(false);
             panelCabecalho.PerformLayout();
             panelConteudo.ResumeLayout(false);
             panelConteudo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)img_cnpj).EndInit();
+            ((System.ComponentModel.ISupportInitialize)img_cpf).EndInit();
             ResumeLayout(false);
         }
 
@@ -358,15 +429,20 @@ namespace Venda_Bovina
         private Label label5;
         private Label label4;
         private Label label3;
-        private TextBox textBox5;
-        private MaskedTextBox maskedTextBox2;
-        private TextBox textBox4;
-        private MaskedTextBox maskedTextBox1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txt_quantidadeCabecas;
+        private MaskedTextBox txt_cnpj;
+        private TextBox txt_idade;
+        private MaskedTextBox txt_cpf;
+        private TextBox txt_marca;
+        private TextBox txt_areaTerreno;
+        private TextBox txt_nome;
         private Label label8;
         private Label label7;
         private Button btnVendas;
+        private Button btn_fotoUsuario;
+        private Button button2;
+        private OpenFileDialog openFileDialog1;
+        private PictureBox img_cnpj;
+        private PictureBox img_cpf;
     }
 }

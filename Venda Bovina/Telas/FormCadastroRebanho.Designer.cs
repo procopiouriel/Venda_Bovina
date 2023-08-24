@@ -225,28 +225,29 @@ namespace Venda_Bovina
             // 
             // txt_marca
             // 
-            txt_marca.Location = new Point(355, 206);
+            txt_marca.Enabled = false;
+            txt_marca.Location = new Point(322, 202);
             txt_marca.Name = "txt_marca";
-            txt_marca.Size = new Size(136, 23);
+            txt_marca.Size = new Size(195, 23);
             txt_marca.TabIndex = 42;
             // 
             // txt_peso
             // 
-            txt_peso.Location = new Point(344, 169);
+            txt_peso.Location = new Point(311, 165);
             txt_peso.Name = "txt_peso";
-            txt_peso.Size = new Size(147, 23);
+            txt_peso.Size = new Size(206, 23);
             txt_peso.TabIndex = 41;
             // 
             // txt_raca
             // 
-            txt_raca.Location = new Point(344, 128);
+            txt_raca.Location = new Point(311, 124);
             txt_raca.Name = "txt_raca";
-            txt_raca.Size = new Size(147, 23);
+            txt_raca.Size = new Size(206, 23);
             txt_raca.TabIndex = 40;
             // 
             // txt_idade
             // 
-            txt_idade.Location = new Point(355, 85);
+            txt_idade.Location = new Point(381, 79);
             txt_idade.Name = "txt_idade";
             txt_idade.Size = new Size(136, 23);
             txt_idade.TabIndex = 39;
@@ -254,16 +255,16 @@ namespace Venda_Bovina
             // 
             // txt_altura
             // 
-            txt_altura.Location = new Point(355, 46);
+            txt_altura.Location = new Point(322, 42);
             txt_altura.Name = "txt_altura";
-            txt_altura.Size = new Size(136, 23);
+            txt_altura.Size = new Size(195, 23);
             txt_altura.TabIndex = 38;
             // 
             // txt_comprimento
             // 
-            txt_comprimento.Location = new Point(414, 3);
+            txt_comprimento.Location = new Point(381, -1);
             txt_comprimento.Name = "txt_comprimento";
-            txt_comprimento.Size = new Size(77, 23);
+            txt_comprimento.Size = new Size(136, 23);
             txt_comprimento.TabIndex = 37;
             // 
             // txt_genetica
@@ -295,7 +296,7 @@ namespace Venda_Bovina
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label14.Location = new Point(292, 167);
+            label14.Location = new Point(259, 163);
             label14.Name = "label14";
             label14.Size = new Size(50, 21);
             label14.TabIndex = 30;
@@ -315,7 +316,7 @@ namespace Venda_Bovina
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(292, 204);
+            label11.Location = new Point(259, 200);
             label11.Name = "label11";
             label11.Size = new Size(61, 21);
             label11.TabIndex = 27;
@@ -325,7 +326,7 @@ namespace Venda_Bovina
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(292, 44);
+            label10.Location = new Point(259, 40);
             label10.Name = "label10";
             label10.Size = new Size(61, 21);
             label10.TabIndex = 26;
@@ -355,7 +356,7 @@ namespace Venda_Bovina
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(292, 3);
+            label7.Location = new Point(259, -1);
             label7.Name = "label7";
             label7.Size = new Size(120, 21);
             label7.TabIndex = 23;
@@ -365,17 +366,18 @@ namespace Venda_Bovina
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(292, 83);
+            label6.Location = new Point(259, 79);
             label6.Name = "label6";
-            label6.Size = new Size(57, 21);
+            label6.Size = new Size(120, 21);
             label6.TabIndex = 22;
-            label6.Text = "Idade:";
+            label6.Text = "Idade (Meses):";
+            label6.Click += label6_Click_1;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(292, 126);
+            label5.Location = new Point(259, 122);
             label5.Name = "label5";
             label5.Size = new Size(50, 21);
             label5.TabIndex = 21;
@@ -410,7 +412,7 @@ namespace Venda_Bovina
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.Black;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(602, 35);
+            button2.Location = new Point(486, 274);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(101, 30);
@@ -421,9 +423,9 @@ namespace Venda_Bovina
             // 
             // btn_imagem
             // 
-            btn_imagem.Location = new Point(521, 83);
+            btn_imagem.Location = new Point(394, 310);
             btn_imagem.Name = "btn_imagem";
-            btn_imagem.Size = new Size(250, 255);
+            btn_imagem.Size = new Size(270, 257);
             btn_imagem.TabIndex = 17;
             btn_imagem.UseVisualStyleBackColor = true;
             // 
@@ -456,7 +458,7 @@ namespace Venda_Bovina
             btn_cadastrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_cadastrar.ForeColor = Color.Black;
             btn_cadastrar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_cadastrar.Location = new Point(167, 278);
+            btn_cadastrar.Location = new Point(96, 396);
             btn_cadastrar.Margin = new Padding(4, 3, 4, 3);
             btn_cadastrar.Name = "btn_cadastrar";
             btn_cadastrar.Size = new Size(182, 60);
