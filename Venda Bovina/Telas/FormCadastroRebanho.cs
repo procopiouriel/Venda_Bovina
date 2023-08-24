@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using Formatting = Newtonsoft.Json.Formatting;
 
 namespace Venda_Bovina
 {
@@ -101,18 +104,24 @@ namespace Venda_Bovina
                 double peso = Convert.ToDouble(txt_peso.Text);
                 double preco = Cadastro_Rebanho.PrecoRebanho(peso, animal, sexo, idade, genetica);
 
-                Cadastro_Rebanho conexao = new Cadastro_Rebanho(numeracao, animal, sexo, raca, idade, comprimento, coloracao, registro, altura, marca, genetica, preco, peso);
+                Cadastro_Rebanho conexao = new Cadastro_Rebanho(numeracao, animal, sexo, Cadastro_Rebanho.Sexo(animal, sexo, idade), raca, idade, comprimento, coloracao, registro, altura, marca, genetica, preco, peso);
                 Program.rebanho.Add(conexao);
 
-                MessageBox.Show("Animal registrado com exito!");
-                numeracao++;
+               
 
-                FormRebanho conexao1 = new FormRebanho();
-                this.Close();
-                conexao1.ShowDialog();
+                    if (conexao.JsonSerealizarLista(Program.rebanho, @"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json"))
+                        MessageBox.Show("Salvo");
 
+                    Program.rebanho = Cadastro_Rebanho.JsonDesserealizarLista(@"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json");
 
+                    MessageBox.Show("Animal registrado com exito!");
+                    numeracao++;
 
+                    FormRebanho conexao1 = new FormRebanho();
+                    this.Close();
+                    conexao1.ShowDialog();
+                
+               
             }
             catch (Exception error)
             {

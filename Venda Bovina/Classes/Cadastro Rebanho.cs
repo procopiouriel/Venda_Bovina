@@ -1,14 +1,14 @@
-﻿using System.Windows.Forms;
+﻿using Newtonsoft.Json;
+using Onibus;
+using System.Runtime.CompilerServices;
 using Venda_Bovina;
 
 public class Cadastro_Rebanho
 {
-    public  string tipo { get; set; }
+    public string tipo { get; set; }
     public string animal { get; set; }//Bovino, Muares, Equinos.
 
     public  string sexo { get; set; }//femea ou macho
-
-    public  string Qani { get; set; }
 
     public int numeracao = 0;
     public  string raca { get; set; }
@@ -30,11 +30,12 @@ public class Cadastro_Rebanho
     {
         
     }
-    public Cadastro_Rebanho(int numeracao, string tipo, string sexo, string raca, int idade, double comprimento, string coloracao, string registro, double altura, string marca, double genetica, double peso, double preco)
+    public Cadastro_Rebanho(int numeracao, string tipo, string sexo, string tipoAnimal, string raca, int idade, double comprimento, string coloracao, string registro, double altura, string marca, double genetica, double preco, double peso)
     {
         this.numeracao = numeracao;
         this.animal = tipo;
         this.sexo = sexo;
+        this.tipo = tipoAnimal;
         this.raca = raca;
         this.idade = idade;
         this.comprimento = comprimento;
@@ -46,10 +47,6 @@ public class Cadastro_Rebanho
         this.peso = peso;
         this.preco = preco;
     }
-
-
-
-
 
 
     public static string Sexo(string tipo, string sexo, int idade)
@@ -140,9 +137,64 @@ public class Cadastro_Rebanho
         return ValorRebanho;
     }
 
-  /*- PREÇO:
- * Bezerro = 190,80 reais a arroba;
- * Vaca = 167,98 reais a arroba;
- * Boi = 208,90 reais a arroba;
- */
+
+
+
+    public bool JsonSerealizarLista(List<Cadastro_Rebanho> lista, string path)
+    {
+        var strJson = JsonConvert.SerializeObject(lista, Formatting.Indented);
+        return SaveFileEmpresa(strJson, path);
+    }
+
+    private static string OpenFileEmpresa(string path)
+    {
+        try
+        {
+            var strJson = "";
+            using (StreamReader sw = new StreamReader(path))
+            {
+                strJson = sw.ReadToEnd();
+            }
+            return strJson; 
+        }
+        catch (Exception ex)
+        {
+            return "Falha: " + ex.Message;
+        }    
+    }
+    public static List<Cadastro_Rebanho> JsonDesserealizarLista(string path)
+    {
+        var strJson = OpenFileEmpresa(path);
+        if (strJson.Substring(0, 5) != "Falha")
+        {
+            return JsonConvert.DeserializeObject<List<Cadastro_Rebanho>>(strJson);
+        }
+        else
+        {
+            var listaempresas = new List<Cadastro_Rebanho>();
+            Cadastro_Rebanho conexao = new Cadastro_Rebanho();
+            listaempresas.Add(conexao);
+            return listaempresas;
+           
+        }
+    }
+
+    private bool SaveFileEmpresa(string strJson, string path)
+    {
+        try
+        {
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                sw.WriteLine(strJson);
+            }
+
+            return true;
+        }
+        catch (Exception error)
+        {
+            MessageBox.Show(error.Message);
+            return false;
+        }
+    }
+
 }
