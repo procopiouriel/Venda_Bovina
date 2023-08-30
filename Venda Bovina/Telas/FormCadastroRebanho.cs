@@ -17,11 +17,11 @@ namespace Venda_Bovina
 {
     public partial class FormCadastroRebanho : Form
     {
-        public static int numeracao = 0;
+        Cadastro_Rebanho conexao = new Cadastro_Rebanho();
+        public static int numeracao = 1;
         public FormCadastroRebanho()
         {
-            try
-            {
+           
                 InitializeComponent();
 
                 if (Program.rebanho.Count == 0)//SE NA LISTA REBANHO TIVER 0 VALORES
@@ -36,11 +36,8 @@ namespace Venda_Bovina
                 {
                     txt_marca.Text = str.Marca.ToString();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
+           
 
 
         }
@@ -77,23 +74,27 @@ namespace Venda_Bovina
 
         private void label6_Click(object sender, EventArgs e)
         {
-
         }
 
         public void btnVendas_Click(object sender, EventArgs e)
         {
-            Lista();
-            Cadastro_Rebanho conexao = new Cadastro_Rebanho();
-            if (conexao.JsonSerealizarLista(Program.rebanho, @"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json"))
-                MessageBox.Show("Salvo");
+            //Cadastro_Rebanho conexao = new Cadastro_Rebanho();
+            //if (conexao.JsonSerealizarLista(Program.rebanho, @"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json"))
+            // MessageBox.Show("Salvo");
 
-            Program.rebanho = Cadastro_Rebanho.JsonDesserealizarLista(@"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json");
+            //Program.rebanho.Add(conexao);
+            //Program.rebanho = Cadastro_Rebanho.JsonDesserealizarLista(@"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json");
+
+            Lista();
+
+            
+
+            //Program.rebanho = Cadastro_Rebanho.JsonDesserealizarLista(@"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json");
         }
 
         public void Lista()
         {
-            try
-            {
+          
 
                 string animal = combo_tipos.Text;
                 string sexo = combo_sexo.Text;
@@ -111,19 +112,16 @@ namespace Venda_Bovina
                 Cadastro_Rebanho conexao = new Cadastro_Rebanho(numeracao, animal, sexo, Cadastro_Rebanho.Sexo(animal, sexo, idade), raca, idade, comprimento, coloracao, registro, altura, marca, genetica, preco, peso);
                 Program.rebanho.Add(conexao);
 
-                MessageBox.Show("Animal registrado com exito!");
+
+                if (conexao.JsonSerealizarLista(Program.rebanho, @"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json"))
+                    MessageBox.Show("Salvo");
+
+               
                 numeracao++;
 
                 FormRebanho conexao1 = new FormRebanho();
                 this.Close();
                 conexao1.ShowDialog();
-
-
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message);
-            }
         }
 
 
@@ -169,7 +167,6 @@ namespace Venda_Bovina
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
             }
 
         }

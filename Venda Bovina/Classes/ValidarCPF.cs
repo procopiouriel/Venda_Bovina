@@ -38,7 +38,6 @@ public static class Validacoes
         {
             if (Convert.ToInt32(cpf[9].ToString()) != 0)
             {
-                MessageBox.Show("CPF inválido");
                 return false;
             }
         }
@@ -47,7 +46,6 @@ public static class Validacoes
             ver = 11 - resto;
             if (Convert.ToInt32(cpf[9].ToString()) != ver)
             {
-                MessageBox.Show("CPF inválido");
                 return false;
             }
         }
@@ -74,7 +72,6 @@ public static class Validacoes
         {
             if (Convert.ToInt32(cpf[10].ToString()) != 0)
             {
-                MessageBox.Show("CPF inválido");
                 return false;
             }
         }
@@ -83,12 +80,10 @@ public static class Validacoes
             veri = 11 - resto1;
             if (Convert.ToInt32(cpf[10].ToString()) != veri)
             {
-                MessageBox.Show("CPF inválido");
                 return false;
             }
         }
 
-        MessageBox.Show("CPF válido");
         return true;
 
     }

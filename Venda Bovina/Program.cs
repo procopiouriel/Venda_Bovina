@@ -5,8 +5,8 @@ namespace Venda_Bovina
 {
     internal static class Program
     {
-        
-        public static List<Cadastro_Rebanho> rebanho = new List<Cadastro_Rebanho>();
+
+        public static List<Cadastro_Rebanho> rebanho;//= Cadastro_Rebanho.JsonDesserealizarLista("C:\\Users\\proco\\source\\repos\\Venda Bovina\\Venda Bovina\\Banco.json");
         public static List<Button> botaoFoto = new List<Button>();
         public static List<Button> botaoFotoUsuario = new List<Button>();
         public static List<Label> labelList = new List<Label>();
@@ -19,14 +19,15 @@ namespace Venda_Bovina
         [STAThread]
         static void Main()
         {
-
+           
+            rebanho = Cadastro_Rebanho.JsonDesserealizarLista("C:\\Users\\proco\\source\\repos\\Venda Bovina\\Venda Bovina\\Banco.json");
            
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new FormCadastroUsuario());
-            
+
         }
     }
 }

@@ -77,6 +77,7 @@ namespace Venda_Bovina
                     Fazendeiro conexao = new Fazendeiro(nome, idade, cpf, cnpj, areaTerreno, quantidadeCabecas, marca);
                     Program.usuarios.Add(conexao);
 
+                   
                     FormInicial conexao1 = new FormInicial();
                     this.Visible = false;
                     conexao1.ShowDialog();
@@ -85,7 +86,7 @@ namespace Venda_Bovina
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message);
+
             }
         }
 
@@ -209,7 +210,7 @@ namespace Venda_Bovina
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+
             }
         }
 

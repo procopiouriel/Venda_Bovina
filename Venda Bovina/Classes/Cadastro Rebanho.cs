@@ -9,7 +9,8 @@ public class Cadastro_Rebanho
 
     public  string sexo { get; set; }//femea ou macho
 
-    public int numeracao = 0;
+
+    public int numeracao { get; set; }
     public  string raca { get; set; }
     public  int idade { get; set; }
     public  double comprimento { get; set; }
@@ -46,7 +47,6 @@ public class Cadastro_Rebanho
         this.peso = peso;
         this.preco = preco;
     }
-
 
     public static string Sexo(string tipo, string sexo, int idade)
     {
@@ -166,17 +166,18 @@ public class Cadastro_Rebanho
     public static List<Cadastro_Rebanho> JsonDesserealizarLista(string path)
     {
         var strJson = OpenFileEmpresa(path);
-        if (strJson.Substring(0, 5) != "Falha")
-        {
-            return JsonConvert.DeserializeObject<List<Cadastro_Rebanho>>(strJson);
-        }
-        else
+        if (strJson.Contains( "Falha"))
         {
             var listaempresas = new List<Cadastro_Rebanho>();
             Cadastro_Rebanho conexao = new Cadastro_Rebanho();
             listaempresas.Add(conexao);
             return listaempresas;
-           
+        }
+        else
+        {
+
+            return JsonConvert.DeserializeObject<List<Cadastro_Rebanho>>(strJson);
+
         }
     }
 
@@ -193,7 +194,6 @@ public class Cadastro_Rebanho
         }
         catch (Exception error)
         {
-            MessageBox.Show(error.Message);
             return false;
         }
     }

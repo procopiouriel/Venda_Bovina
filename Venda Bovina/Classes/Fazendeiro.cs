@@ -1,5 +1,7 @@
-﻿using System.Xml;
+﻿using Newtonsoft.Json;
+using System.Xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Formatting = Newtonsoft.Json.Formatting;
 
 public class Fazendeiro
 {
@@ -49,7 +51,6 @@ public class Fazendeiro
         }
         catch (Exception error)
         {
-            MessageBox.Show(error.Message);
         }
         return null;
     }
@@ -68,9 +69,11 @@ public class Fazendeiro
         }
         catch (Exception error)
         {
-            MessageBox.Show(error.Message);
         }
         return null;
     }
+
+
+    
 }
 
