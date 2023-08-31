@@ -18,12 +18,12 @@ namespace Venda_Bovina
     public partial class FormCadastroRebanho : Form
     {
         Cadastro_Rebanho conexao = new Cadastro_Rebanho();
-        public static int numeracao = 1;
+        public static int numeracao = 0;
         public FormCadastroRebanho()
         {
-           
+            try
+            {
                 InitializeComponent();
-
                 if (Program.rebanho.Count == 0)//SE NA LISTA REBANHO TIVER 0 VALORES
                 {
                     txt_numeracao.Text = "0";
@@ -36,6 +36,11 @@ namespace Venda_Bovina
                 {
                     txt_marca.Text = str.Marca.ToString();
                 }
+            }
+            catch (Exception ex)
+            {
+
+            }
             
            
 
@@ -78,24 +83,14 @@ namespace Venda_Bovina
 
         public void btnVendas_Click(object sender, EventArgs e)
         {
-            //Cadastro_Rebanho conexao = new Cadastro_Rebanho();
-            //if (conexao.JsonSerealizarLista(Program.rebanho, @"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json"))
-            // MessageBox.Show("Salvo");
-
-            //Program.rebanho.Add(conexao);
-            //Program.rebanho = Cadastro_Rebanho.JsonDesserealizarLista(@"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json");
-
-            Lista();
-
-            
-
-            //Program.rebanho = Cadastro_Rebanho.JsonDesserealizarLista(@"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json");
+           
+            Lista();         
         }
 
         public void Lista()
         {
-          
-
+            try
+            {
                 string animal = combo_tipos.Text;
                 string sexo = combo_sexo.Text;
                 string raca = txt_raca.Text;
@@ -116,12 +111,18 @@ namespace Venda_Bovina
                 if (conexao.JsonSerealizarLista(Program.rebanho, @"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco.json"))
                     MessageBox.Show("Salvo");
 
-               
+
                 numeracao++;
 
                 FormRebanho conexao1 = new FormRebanho();
                 this.Close();
                 conexao1.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Preencha todas as informações corretamente!");
+            }
+                
         }
 
 
@@ -167,6 +168,7 @@ namespace Venda_Bovina
             }
             catch (Exception ex)
             {
+
             }
 
         }

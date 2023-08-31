@@ -16,21 +16,28 @@ namespace Venda_Bovina
     {
         public FormInicial()
         {
-            InitializeComponent();
-
-            foreach (Fazendeiro str in Program.usuarios)
+            try
             {
-                lbl_nomeUsuario.Text = Fazendeiro.PrimeiroNome(str.Nome);
-                dataGridView1.Rows.Add(str.Nome, Fazendeiro.Cpf, str.Idade, str.Cnpj, str.PropriedadeR, str.CabecaG, str.Marca);
-            }
+                InitializeComponent();
 
-            if (Program.botaoFotoUsuario.Count == 1)
-            {
-                picture_fotoUsuario.BackgroundImage = Program.botaoFotoUsuario[0].BackgroundImage;
-                picture_fotoUsuario.BackgroundImageLayout = Program.botaoFotoUsuario[0].BackgroundImageLayout;
+                foreach (Fazendeiro str in Program.usuarios)
+                {
+                    lbl_nomeUsuario.Text = Fazendeiro.PrimeiroNome(str.Nome);
+                    dataGridView1.Rows.Add(str.Nome, Fazendeiro.Cpf, str.Idade, str.Cnpj, str.PropriedadeR, str.CabecaG, str.Marca);
+                }
 
+                if (Program.botaoFotoUsuario.Count == 1)
+                {
+                    picture_fotoUsuario.BackgroundImage = Program.botaoFotoUsuario[0].BackgroundImage;
+                    picture_fotoUsuario.BackgroundImageLayout = Program.botaoFotoUsuario[0].BackgroundImageLayout;
+
+                }
+                else
+                {
+
+                }
             }
-            else
+            catch (Exception ex)
             {
 
             }

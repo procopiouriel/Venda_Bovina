@@ -51,6 +51,7 @@ namespace Venda_Bovina
         {
             try
             {
+                
                 string nome = txt_nome.Text;
                 int idade = Convert.ToInt32(txt_idade.Text);
                 string cpf = txt_cpf.Text;
@@ -59,30 +60,32 @@ namespace Venda_Bovina
                 int quantidadeCabecas = Convert.ToInt32(txt_quantidadeCabecas.Text);
                 string marca = txt_marca.Text;
 
-                if (ValidaCNPJ.IsCnpj(cnpj) == false)//SE O CNPJ FOR FALSO
+                if (ValidaCNPJ.IsCnpj(cnpj) == false || Validacoes.ValidaCPF(cpf) == false)//SE O CNPJ FOR FALSO
                 {
-                    MessageBox.Show("CNPJ invalido!");
-                }
-                else if (Validacoes.ValidaCPF(cpf) == false)
-                {
-                    MessageBox.Show("CPF invalido!");
-                }
-
-                if (marca == "")
-                {
-                    MessageBox.Show("Preencha seu nome completo!");
+                    MessageBox.Show("CNPJ ou CPF invalido!");
+                   
                 }
                 else
                 {
-                    Fazendeiro conexao = new Fazendeiro(nome, idade, cpf, cnpj, areaTerreno, quantidadeCabecas, marca);
-                    Program.usuarios.Add(conexao);
+                    if (marca == "")
+                    {
+                        MessageBox.Show("Preencha seu nome completo!");
+                    }
+                    else
+                    {
+                        Fazendeiro conexao = new Fazendeiro(nome, idade, cpf, cnpj, areaTerreno, quantidadeCabecas, marca);
+                        Program.usuarios.Add(conexao);
 
-                   
-                    FormInicial conexao1 = new FormInicial();
-                    this.Visible = false;
-                    conexao1.ShowDialog();
+
+                        FormInicial conexao1 = new FormInicial();
+                        this.Visible = false;
+                        conexao1.ShowDialog();
+                    }
                 }
+               
 
+
+              
             }
             catch (Exception error)
             {
@@ -102,49 +105,65 @@ namespace Venda_Bovina
 
         private void txt_cpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            while (true)
+            try
             {
-                if (txt_cpf.Text.Length == 14)
+                while (true)
                 {
-
-                    if (Validacoes.ValidaCPF(txt_cpf.Text) == true)
+                    if (txt_cpf.Text.Length == 14)
                     {
-                        img_cpf.BackgroundImage = Properties.Resources.certo;
-                        img_cpf.BackgroundImageLayout = ImageLayout.Stretch;
 
+                        if (Validacoes.ValidaCPF(txt_cpf.Text) == true)
+                        {
+                            img_cpf.BackgroundImage = Properties.Resources.certo;
+                            img_cpf.BackgroundImageLayout = ImageLayout.Stretch;
+
+                        }
+                        else
+                        {
+                            img_cpf.BackgroundImage = Properties.Resources.errado;
+                            img_cpf.BackgroundImageLayout = ImageLayout.Stretch;
+                        }
+                        break;
                     }
-                    else
-                    {
-                        img_cpf.BackgroundImage = Properties.Resources.errado;
-                        img_cpf.BackgroundImageLayout = ImageLayout.Stretch;
-                    }
-                    break;
                 }
             }
+            catch (Exception ex)
+            {
+
+            }
+            
 
 
         }
 
         private void txt_cnpj_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            while (true)
+            try
             {
-                if (txt_cnpj.Text.Length == 18)
+                while (true)
                 {
-                    if (ValidaCNPJ.IsCnpj(txt_cnpj.Text) == true)
+                    if (txt_cnpj.Text.Length == 18)
                     {
-                        img_cnpj.BackgroundImage = Properties.Resources.certo;
-                        img_cnpj.BackgroundImageLayout = ImageLayout.Stretch;
+                        if (ValidaCNPJ.IsCnpj(txt_cnpj.Text) == true)
+                        {
+                            img_cnpj.BackgroundImage = Properties.Resources.certo;
+                            img_cnpj.BackgroundImageLayout = ImageLayout.Stretch;
 
+                        }
+                        else
+                        {
+                            img_cnpj.BackgroundImage = Properties.Resources.errado;
+                            img_cnpj.BackgroundImageLayout = ImageLayout.Stretch;
+                        }
+                        break;
                     }
-                    else
-                    {
-                        img_cnpj.BackgroundImage = Properties.Resources.errado;
-                        img_cnpj.BackgroundImageLayout = ImageLayout.Stretch;
-                    }
-                    break;
                 }
             }
+            catch (Exception ex)
+            {
+
+            }
+           
 
 
         }

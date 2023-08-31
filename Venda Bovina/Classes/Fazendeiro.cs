@@ -51,6 +51,7 @@ public class Fazendeiro
         }
         catch (Exception error)
         {
+
         }
         return null;
     }
@@ -72,8 +73,5 @@ public class Fazendeiro
         }
         return null;
     }
-
-
-    
 }
 

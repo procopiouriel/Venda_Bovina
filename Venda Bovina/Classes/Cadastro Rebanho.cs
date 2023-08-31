@@ -112,6 +112,7 @@ public class Cadastro_Rebanho
 
     public static double PrecoRebanho(double pesoRebanho, string tipo, string sexo, int idade, double genetica)
     {
+        
         double ValorRebanho = 0;
         double pesoArroba = pesoRebanho / 15;//1kg = 15 arrobas
 

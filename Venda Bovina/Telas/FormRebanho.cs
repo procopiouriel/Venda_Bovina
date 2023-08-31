@@ -71,23 +71,49 @@ namespace Venda_Bovina
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            try
             {
-                int index = dataGridView1.SelectedRows[0].Index;
-
-                if (index >= 0 && index < Program.botaoFoto.Count)
+                if (dataGridView1.SelectedRows.Count > 0)
                 {
+                    int index = dataGridView1.SelectedRows[0].Index;
 
-                    btn_foto.BackgroundImage = Program.botaoFoto[index].BackgroundImage;
-                    btn_foto.BackgroundImageLayout = Program.botaoFoto[index].BackgroundImageLayout;
+                    if (index >= 0 && index < Program.botaoFoto.Count)
+                    {
+
+                        btn_foto.BackgroundImage = Program.botaoFoto[index].BackgroundImage;
+                        btn_foto.BackgroundImageLayout = Program.botaoFoto[index].BackgroundImageLayout;
 
 
-                }
-                else
-                {
-                    MessageBox.Show("Este animal não possui imagens registradas!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este animal não possui imagens registradas!");
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+
+            }
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int index = dataGridView1.SelectedRows[0].Index;
+                    dataGridView1.Rows.RemoveAt(index);
+                    MessageBox.Show("Apagado com sucesso!");
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+          
         }
     }
 }

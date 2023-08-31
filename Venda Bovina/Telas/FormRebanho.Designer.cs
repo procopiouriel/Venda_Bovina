@@ -33,6 +33,7 @@ namespace Venda_Bovina
             panelMenu = new Panel();
             btn_foto = new Button();
             panelConteudo = new Panel();
+            button2 = new Button();
             button3 = new Button();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -169,6 +170,7 @@ namespace Venda_Bovina
             // 
             // panelConteudo
             // 
+            panelConteudo.Controls.Add(button2);
             panelConteudo.Controls.Add(button3);
             panelConteudo.Controls.Add(dataGridView1);
             panelConteudo.Dock = DockStyle.Fill;
@@ -177,6 +179,25 @@ namespace Venda_Bovina
             panelConteudo.Name = "panelConteudo";
             panelConteudo.Size = new Size(647, 567);
             panelConteudo.TabIndex = 2;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Gray;
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseOverBackColor = Color.Goldenrod;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = Color.Black;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(460, 510);
+            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(184, 45);
+            button2.TabIndex = 5;
+            button2.Text = "Excluir";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -318,5 +339,6 @@ namespace Venda_Bovina
         private DataGridViewTextBoxColumn Column11;
         private DataGridViewTextBoxColumn Column12;
         private DataGridViewTextBoxColumn Column13;
+        private Button button2;
     }
 }
