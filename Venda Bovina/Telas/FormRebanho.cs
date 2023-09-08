@@ -18,10 +18,26 @@ namespace Venda_Bovina
             try
             {
                 InitializeComponent();
-                foreach (Cadastro_Rebanho str in Program.rebanho)
+
+                foreach (Fazendeiro str2 in Program.usuarioOnline)
                 {
-                    dataGridView1.Rows.Add(Cadastro_Rebanho.Sexo(str.animal, str.sexo, str.idade), str.numeracao, str.raca, str.idade, str.comprimento, str.coloracao, str.registro, str.altura, str.marca, str.genetica, Cadastro_Rebanho.PrecoRebanho(str.peso, str.animal, str.sexo, str.idade, str.genetica).ToString("C2"), str.peso);
+                    foreach (Cadastro_Rebanho str in Program.rebanho)
+                    {
+                        MessageBox.Show("Numeracao FormRebanho: " + str.numeracao);
+                        if (str.marca == str2.Marca)
+                        {
+                            dataGridView1.Rows.Add(Cadastro_Rebanho.Sexo(str.animal, str.sexo, str.idade), str.numeracao, str.raca, str.idade, str.comprimento, str.coloracao, str.registro, str.altura, str.marca, str.genetica, Cadastro_Rebanho.PrecoRebanho(str.peso, str.animal, str.sexo, str.idade, str.genetica).ToString("C2"), str.peso);
+                          
+                        }
+                       
+                    }
+
+
                 }
+
+                
+
+
 
             }
             catch (Exception ex)
@@ -73,7 +89,7 @@ namespace Venda_Bovina
         {
             try
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                /* if (dataGridView1.SelectedRows.Count > 0)
                 {
                     int index = dataGridView1.SelectedRows[0].Index;
 
@@ -89,13 +105,46 @@ namespace Venda_Bovina
                     {
                         MessageBox.Show("Este animal não possui imagens registradas!");
                     }
+                }*/
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int index = dataGridView1.SelectedRows[0].Index;
+
+                    if (index >= 0 && index < Program.rebanho.Count)
+                    {
+                        foreach (Cadastro_Rebanho str in Program.rebanho)
+                        {
+                            if (str.numeracao == index)
+                            {
+                                if (str.foto == null)
+                                {
+                                    MessageBox.Show("Este animal não possui imagens registradas!");
+                                    btn_foto.BackgroundImage = null;
+
+                                }
+                                else
+                                {
+                                    btn_foto.BackgroundImage = Image.FromFile(str.foto);
+                                    btn_foto.BackgroundImageLayout = ImageLayout.Stretch;
+                                }
+                              
+                            }    
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este animal não possui imagens registradas!");
+                    }
                 }
+                
+
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -113,7 +162,7 @@ namespace Venda_Bovina
             {
 
             }
-          
+
         }
     }
 }

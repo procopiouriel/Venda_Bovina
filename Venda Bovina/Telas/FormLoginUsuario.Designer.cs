@@ -1,9 +1,8 @@
 ﻿
 namespace Venda_Bovina
 {
-    partial class FormRebanho
+    partial class FormLoginUsuario
     {
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,7 +22,7 @@ namespace Venda_Bovina
         }
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRebanho));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLoginUsuario));
             panelCabecalho = new Panel();
             label1 = new Label();
             button1 = new Button();
@@ -31,27 +30,19 @@ namespace Venda_Bovina
             btnRestaurar = new Button();
             btnMaximizar = new Button();
             panelMenu = new Panel();
-            btn_foto = new Button();
+            txt_aviso = new Label();
             panelConteudo = new Panel();
             button2 = new Button();
-            button3 = new Button();
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewTextBoxColumn();
-            Column9 = new DataGridViewTextBoxColumn();
-            Column10 = new DataGridViewTextBoxColumn();
-            Column11 = new DataGridViewTextBoxColumn();
-            Column12 = new DataGridViewTextBoxColumn();
-            Column13 = new DataGridViewTextBoxColumn();
+            label3 = new Label();
+            txt_senha = new TextBox();
+            label2 = new Label();
+            btnVendas = new Button();
+            txt_cpf = new MaskedTextBox();
+            label4 = new Label();
+            openFileDialog1 = new OpenFileDialog();
             panelCabecalho.SuspendLayout();
             panelMenu.SuspendLayout();
             panelConteudo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panelCabecalho
@@ -79,7 +70,7 @@ namespace Venda_Bovina
             label1.Name = "label1";
             label1.Size = new Size(150, 30);
             label1.TabIndex = 2;
-            label1.Text = "Meu Rebanho";
+            label1.Text = "Login Usuario";
             // 
             // button1
             // 
@@ -152,144 +143,127 @@ namespace Venda_Bovina
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(37, 46, 59);
-            panelMenu.Controls.Add(btn_foto);
+            panelMenu.Controls.Add(txt_aviso);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 46);
             panelMenu.Margin = new Padding(4, 3, 4, 3);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(286, 567);
+            panelMenu.Size = new Size(159, 567);
             panelMenu.TabIndex = 1;
             // 
-            // btn_foto
+            // txt_aviso
             // 
-            btn_foto.Location = new Point(12, 6);
-            btn_foto.Name = "btn_foto";
-            btn_foto.Size = new Size(267, 230);
-            btn_foto.TabIndex = 0;
-            btn_foto.UseVisualStyleBackColor = true;
+            txt_aviso.AutoSize = true;
+            txt_aviso.ForeColor = Color.Red;
+            txt_aviso.Location = new Point(12, 16);
+            txt_aviso.Name = "txt_aviso";
+            txt_aviso.Size = new Size(38, 15);
+            txt_aviso.TabIndex = 25;
+            txt_aviso.Text = "label5";
             // 
             // panelConteudo
             // 
             panelConteudo.Controls.Add(button2);
-            panelConteudo.Controls.Add(button3);
-            panelConteudo.Controls.Add(dataGridView1);
+            panelConteudo.Controls.Add(label3);
+            panelConteudo.Controls.Add(txt_senha);
+            panelConteudo.Controls.Add(label2);
+            panelConteudo.Controls.Add(btnVendas);
+            panelConteudo.Controls.Add(txt_cpf);
+            panelConteudo.Controls.Add(label4);
             panelConteudo.Dock = DockStyle.Fill;
-            panelConteudo.Location = new Point(286, 46);
+            panelConteudo.Location = new Point(159, 46);
             panelConteudo.Margin = new Padding(4, 3, 4, 3);
             panelConteudo.Name = "panelConteudo";
-            panelConteudo.Size = new Size(647, 567);
+            panelConteudo.Size = new Size(774, 567);
             panelConteudo.TabIndex = 2;
             // 
             // button2
             // 
-            button2.BackColor = Color.Gray;
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.BackColor = SystemColors.AppWorkspace;
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatAppearance.MouseOverBackColor = Color.Goldenrod;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.Black;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(460, 510);
+            button2.Location = new Point(391, 522);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
-            button2.Size = new Size(184, 45);
-            button2.TabIndex = 5;
-            button2.Text = "Excluir";
+            button2.Size = new Size(152, 45);
+            button2.TabIndex = 24;
+            button2.Text = "Cadastrar-se";
             button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            button2.Click += button2_Click_1;
             // 
-            // button3
+            // label3
             // 
-            button3.BackColor = Color.Gray;
-            button3.BackgroundImageLayout = ImageLayout.Zoom;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.MouseOverBackColor = Color.Goldenrod;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.ForeColor = Color.Black;
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(4, 510);
-            button3.Margin = new Padding(4, 3, 4, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(184, 45);
-            button3.TabIndex = 4;
-            button3.Text = "Selecionar";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(0, 537);
+            label3.Name = "label3";
+            label3.Size = new Size(383, 21);
+            label3.TabIndex = 23;
+            label3.Text = "Não possui conta? Cadastre-se  no botão ao lado:";
             // 
-            // dataGridView1
+            // txt_senha
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column4, Column3, Column5, Column6, Column7, Column8, Column9, Column10, Column11, Column12, Column13 });
-            dataGridView1.Location = new Point(0, 6);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(774, 443);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            txt_senha.Location = new Point(299, 64);
+            txt_senha.Name = "txt_senha";
+            txt_senha.Size = new Size(116, 23);
+            txt_senha.TabIndex = 22;
             // 
-            // Column1
+            // label2
             // 
-            Column1.HeaderText = "Animal";
-            Column1.Name = "Column1";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(237, 66);
+            label2.Name = "label2";
+            label2.Size = new Size(61, 21);
+            label2.TabIndex = 21;
+            label2.Text = "Senha:";
             // 
-            // Column4
+            // btnVendas
             // 
-            Column4.HeaderText = "Numeração";
-            Column4.Name = "Column4";
+            btnVendas.BackColor = SystemColors.AppWorkspace;
+            btnVendas.FlatAppearance.BorderSize = 0;
+            btnVendas.FlatAppearance.MouseOverBackColor = Color.Goldenrod;
+            btnVendas.FlatStyle = FlatStyle.Flat;
+            btnVendas.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnVendas.ForeColor = Color.Black;
+            btnVendas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVendas.Location = new Point(263, 141);
+            btnVendas.Margin = new Padding(4, 3, 4, 3);
+            btnVendas.Name = "btnVendas";
+            btnVendas.Size = new Size(152, 45);
+            btnVendas.TabIndex = 14;
+            btnVendas.Text = "Login";
+            btnVendas.UseVisualStyleBackColor = false;
+            btnVendas.Click += btnVendas_Click;
             // 
-            // Column3
+            // txt_cpf
             // 
-            Column3.HeaderText = "Raça";
-            Column3.Name = "Column3";
+            txt_cpf.Location = new Point(299, 30);
+            txt_cpf.Mask = "000,000,000-00";
+            txt_cpf.Name = "txt_cpf";
+            txt_cpf.Size = new Size(116, 23);
+            txt_cpf.TabIndex = 10;
+            txt_cpf.MaskInputRejected += txt_cpf_MaskInputRejected;
             // 
-            // Column5
+            // label4
             // 
-            Column5.HeaderText = "Idade (Meses)";
-            Column5.Name = "Column5";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(237, 30);
+            label4.Name = "label4";
+            label4.Size = new Size(51, 25);
+            label4.TabIndex = 2;
+            label4.Text = "CPF:";
             // 
-            // Column6
+            // openFileDialog1
             // 
-            Column6.HeaderText = "Comprimento";
-            Column6.Name = "Column6";
+            openFileDialog1.FileName = "openFileDialog1";
             // 
-            // Column7
-            // 
-            Column7.HeaderText = "Coloração";
-            Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            Column8.HeaderText = "Registro";
-            Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            Column9.HeaderText = "Altura";
-            Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            Column10.HeaderText = "Marca";
-            Column10.Name = "Column10";
-            // 
-            // Column11
-            // 
-            Column11.HeaderText = "Genética";
-            Column11.Name = "Column11";
-            // 
-            // Column12
-            // 
-            Column12.HeaderText = "Preço";
-            Column12.Name = "Column12";
-            // 
-            // Column13
-            // 
-            Column13.HeaderText = "Peso";
-            Column13.Name = "Column13";
-            // 
-            // FormRebanho
+            // FormLoginUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -299,14 +273,15 @@ namespace Venda_Bovina
             Controls.Add(panelCabecalho);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
-            Name = "FormRebanho";
+            Name = "FormLoginUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             panelCabecalho.ResumeLayout(false);
             panelCabecalho.PerformLayout();
             panelMenu.ResumeLayout(false);
+            panelMenu.PerformLayout();
             panelConteudo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panelConteudo.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -324,21 +299,14 @@ namespace Venda_Bovina
 
         private Button button1;
         private Label label1;
-        public DataGridView dataGridView1;
-        private Button btn_foto;
-        private Button button3;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn Column9;
-        private DataGridViewTextBoxColumn Column10;
-        private DataGridViewTextBoxColumn Column11;
-        private DataGridViewTextBoxColumn Column12;
-        private DataGridViewTextBoxColumn Column13;
+        private Label label4;
+        private MaskedTextBox txt_cpf;
+        private Button btnVendas;
+        private OpenFileDialog openFileDialog1;
+        private TextBox txt_senha;
+        private Label label2;
         private Button button2;
+        private Label label3;
+        private Label txt_aviso;
     }
 }

@@ -22,3 +22,4 @@ C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\V
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Cadastro_Rebanho.resources
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
 C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda Bovina.csproj.CopyComplete
+C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\obj\Debug\net7.0-windows\Venda_Bovina.FormLoginUsuario.resources

@@ -1,6 +1,8 @@
 [
   {
+    "Foto": null,
     "Nome": null,
+    "Senha": null,
     "Idade": 2,
     "Cpf": null,
     "Cnpj": null,
@@ -9,57 +11,25 @@
     "Marca": ""
   },
   {
-    "Nome": "a a a",
-    "Idade": 1,
-    "Cpf": null,
-    "Cnpj": "11.111.111/1111-11",
-    "PropriedadeR": 1.0,
-    "CabecaG": 1,
-    "Marca": "AA"
-  },
-  {
-    "Nome": "a a a",
-    "Idade": 1,
-    "Cpf": "111.111.111-11",
-    "Cnpj": "11.111.111/1111-11",
-    "PropriedadeR": 1.0,
-    "CabecaG": 1,
-    "Marca": "AA"
-  },
-  {
-    "Nome": "a a a",
-    "Idade": 1,
-    "Cpf": "111.111.111-11",
-    "Cnpj": "11.111.111/1111-11",
-    "PropriedadeR": 1.0,
-    "CabecaG": 1,
-    "Marca": "AA"
-  },
-  {
-    "Nome": "a a a",
-    "Idade": 1,
-    "Cpf": "111.111.111-11",
-    "Cnpj": "11.111.111/1111-11",
-    "PropriedadeR": 1.0,
-    "CabecaG": 1,
-    "Marca": "AA"
-  },
-  {
-    "Nome": "uriel nicolas pro",
-    "Idade": 1,
-    "Cpf": "111.111.111-11",
-    "Cnpj": "11.111.111/1111-11",
-    "PropriedadeR": 1.0,
-    "CabecaG": 1,
+    "Foto": "C:\\Users\\proco\\Downloads\\bull.jpg",
+    "Nome": "Uriel Nicolas Procópio Ramos",
+    "Senha": "123senha",
+    "Idade": 16,
+    "Cpf": "034.416.542-69",
+    "Cnpj": "45.716.443/0001-11",
+    "PropriedadeR": 50.0,
+    "CabecaG": 200,
     "Marca": "UN"
   },
   {
-    "Nome": "uriel ncioas pro",
-    "Idade": 1,
+    "Foto": null,
+    "Nome": "Elias De Abreu",
+    "Senha": "olasenha",
+    "Idade": 30,
     "Cpf": "111.111.111-11",
-    "Cnpj": "11.111.111/1111-11",
-    "PropriedadeR": 1.0,
-    "CabecaG": 1,
-    "Marca": "UN"
+    "Cnpj": "45.716.443/0001-11",
+    "PropriedadeR": 22.0,
+    "CabecaG": 22,
+    "Marca": "ED"
   }
 ]

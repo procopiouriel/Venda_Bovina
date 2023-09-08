@@ -4,6 +4,8 @@ using Venda_Bovina;
 
 public class Cadastro_Rebanho
 {
+
+    public string foto { get; set; }
     public string tipo { get; set; }
     public string animal { get; set; }//Bovino, Muares, Equinos.
 
@@ -30,8 +32,9 @@ public class Cadastro_Rebanho
     {
         
     }
-    public Cadastro_Rebanho(int numeracao, string tipo, string sexo, string tipoAnimal, string raca, int idade, double comprimento, string coloracao, string registro, double altura, string marca, double genetica, double preco, double peso)
+    public Cadastro_Rebanho(string foto, int numeracao, string tipo, string sexo, string tipoAnimal, string raca, int idade, double comprimento, string coloracao, string registro, double altura, string marca, double genetica, double preco, double peso)
     {
+        this.foto = foto;
         this.numeracao = numeracao;
         this.animal = tipo;
         this.sexo = sexo;
@@ -101,6 +104,7 @@ public class Cadastro_Rebanho
        
     }
 
+    
     public string Registrado(string registrado)
     {
         if (this.registro == "sim")

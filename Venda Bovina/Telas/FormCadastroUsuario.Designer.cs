@@ -31,6 +31,8 @@ namespace Venda_Bovina
             btnMaximizar = new Button();
             panelMenu = new Panel();
             panelConteudo = new Panel();
+            button3 = new Button();
+            label9 = new Label();
             img_cnpj = new PictureBox();
             img_cpf = new PictureBox();
             button2 = new Button();
@@ -51,6 +53,8 @@ namespace Venda_Bovina
             label3 = new Label();
             label2 = new Label();
             openFileDialog1 = new OpenFileDialog();
+            label10 = new Label();
+            txt_senha = new TextBox();
             panelCabecalho.SuspendLayout();
             panelConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)img_cnpj).BeginInit();
@@ -164,6 +168,10 @@ namespace Venda_Bovina
             // 
             // panelConteudo
             // 
+            panelConteudo.Controls.Add(txt_senha);
+            panelConteudo.Controls.Add(label10);
+            panelConteudo.Controls.Add(button3);
+            panelConteudo.Controls.Add(label9);
             panelConteudo.Controls.Add(img_cnpj);
             panelConteudo.Controls.Add(img_cpf);
             panelConteudo.Controls.Add(button2);
@@ -190,9 +198,37 @@ namespace Venda_Bovina
             panelConteudo.Size = new Size(774, 567);
             panelConteudo.TabIndex = 2;
             // 
+            // button3
+            // 
+            button3.BackColor = SystemColors.AppWorkspace;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatAppearance.MouseOverBackColor = Color.Goldenrod;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.ForeColor = Color.Black;
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(364, 534);
+            button3.Margin = new Padding(4, 3, 4, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(125, 30);
+            button3.TabIndex = 23;
+            button3.Text = "Logar";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(0, 537);
+            label9.Name = "label9";
+            label9.Size = new Size(357, 21);
+            label9.TabIndex = 22;
+            label9.Text = "Ja possui conta?, Faça login no botão ao lado:";
+            // 
             // img_cnpj
             // 
-            img_cnpj.Location = new Point(214, 103);
+            img_cnpj.Location = new Point(224, 144);
             img_cnpj.Name = "img_cnpj";
             img_cnpj.Size = new Size(24, 23);
             img_cnpj.TabIndex = 21;
@@ -202,7 +238,7 @@ namespace Venda_Bovina
             // 
             img_cpf.BackgroundImageLayout = ImageLayout.Stretch;
             img_cpf.Image = (Image)resources.GetObject("img_cpf.Image");
-            img_cpf.Location = new Point(143, 59);
+            img_cpf.Location = new Point(153, 100);
             img_cpf.Name = "img_cpf";
             img_cpf.Size = new Size(24, 23);
             img_cpf.TabIndex = 20;
@@ -255,7 +291,7 @@ namespace Venda_Bovina
             // 
             // txt_quantidadeCabecas
             // 
-            txt_quantidadeCabecas.Location = new Point(204, 198);
+            txt_quantidadeCabecas.Location = new Point(214, 239);
             txt_quantidadeCabecas.Name = "txt_quantidadeCabecas";
             txt_quantidadeCabecas.Size = new Size(56, 23);
             txt_quantidadeCabecas.TabIndex = 13;
@@ -263,7 +299,7 @@ namespace Venda_Bovina
             // 
             // txt_cnpj
             // 
-            txt_cnpj.Location = new Point(66, 103);
+            txt_cnpj.Location = new Point(76, 144);
             txt_cnpj.Mask = "00,000,000/0001-00";
             txt_cnpj.Name = "txt_cnpj";
             txt_cnpj.Size = new Size(142, 23);
@@ -272,7 +308,7 @@ namespace Venda_Bovina
             // 
             // txt_idade
             // 
-            txt_idade.Location = new Point(66, 153);
+            txt_idade.Location = new Point(76, 194);
             txt_idade.Name = "txt_idade";
             txt_idade.Size = new Size(101, 23);
             txt_idade.TabIndex = 11;
@@ -280,7 +316,7 @@ namespace Venda_Bovina
             // 
             // txt_cpf
             // 
-            txt_cpf.Location = new Point(51, 59);
+            txt_cpf.Location = new Point(61, 100);
             txt_cpf.Mask = "000,000,000-00";
             txt_cpf.Name = "txt_cpf";
             txt_cpf.Size = new Size(86, 23);
@@ -290,7 +326,7 @@ namespace Venda_Bovina
             // txt_marca
             // 
             txt_marca.Enabled = false;
-            txt_marca.Location = new Point(118, 290);
+            txt_marca.Location = new Point(128, 331);
             txt_marca.Name = "txt_marca";
             txt_marca.Size = new Size(63, 23);
             txt_marca.TabIndex = 9;
@@ -298,7 +334,7 @@ namespace Venda_Bovina
             // 
             // txt_areaTerreno
             // 
-            txt_areaTerreno.Location = new Point(231, 249);
+            txt_areaTerreno.Location = new Point(241, 290);
             txt_areaTerreno.Name = "txt_areaTerreno";
             txt_areaTerreno.Size = new Size(109, 23);
             txt_areaTerreno.TabIndex = 8;
@@ -316,7 +352,7 @@ namespace Venda_Bovina
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(7, 288);
+            label8.Location = new Point(17, 329);
             label8.Name = "label8";
             label8.Size = new Size(105, 21);
             label8.TabIndex = 6;
@@ -326,7 +362,7 @@ namespace Venda_Bovina
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(7, 196);
+            label7.Location = new Point(17, 237);
             label7.Name = "label7";
             label7.Size = new Size(191, 21);
             label7.TabIndex = 5;
@@ -336,7 +372,7 @@ namespace Venda_Bovina
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(7, 247);
+            label6.Location = new Point(17, 288);
             label6.Name = "label6";
             label6.Size = new Size(224, 21);
             label6.TabIndex = 4;
@@ -347,7 +383,7 @@ namespace Venda_Bovina
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(7, 103);
+            label5.Location = new Point(17, 144);
             label5.Name = "label5";
             label5.Size = new Size(53, 21);
             label5.TabIndex = 3;
@@ -357,7 +393,7 @@ namespace Venda_Bovina
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(7, 57);
+            label4.Location = new Point(17, 98);
             label4.Name = "label4";
             label4.Size = new Size(42, 21);
             label4.TabIndex = 2;
@@ -367,7 +403,7 @@ namespace Venda_Bovina
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(7, 151);
+            label3.Location = new Point(17, 192);
             label3.Name = "label3";
             label3.Size = new Size(57, 21);
             label3.TabIndex = 1;
@@ -387,6 +423,24 @@ namespace Venda_Bovina
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Location = new Point(7, 52);
+            label10.Name = "label10";
+            label10.Size = new Size(61, 21);
+            label10.TabIndex = 24;
+            label10.Text = "Senha:";
+            label10.Click += label10_Click;
+            // 
+            // txt_senha
+            // 
+            txt_senha.Location = new Point(74, 54);
+            txt_senha.Name = "txt_senha";
+            txt_senha.Size = new Size(144, 23);
+            txt_senha.TabIndex = 25;
             // 
             // FormCadastroUsuario
             // 
@@ -444,5 +498,9 @@ namespace Venda_Bovina
         private OpenFileDialog openFileDialog1;
         private PictureBox img_cnpj;
         private PictureBox img_cpf;
+        private Button button3;
+        private Label label9;
+        private Label label10;
+        private TextBox txt_senha;
     }
 }

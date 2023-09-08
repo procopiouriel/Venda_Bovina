@@ -18,31 +18,42 @@ namespace Venda_Bovina
     public partial class FormCadastroRebanho : Form
     {
         Cadastro_Rebanho conexao = new Cadastro_Rebanho();
-        public static int numeracao = 0;
+        public string fotocaminho;
         public FormCadastroRebanho()
         {
             try
             {
                 InitializeComponent();
-                if (Program.rebanho.Count == 0)//SE NA LISTA REBANHO TIVER 0 VALORES
+
+                foreach (Fazendeiro str2 in Program.usuarioOnline)
                 {
-                    txt_numeracao.Text = "0";
+                    txt_marca.Text = str2.Marca.ToString();
+                    foreach (Cadastro_Rebanho str3 in Program.rebanho)
+                    {
+                        if (str3.marca == str2.Marca)
+                        {
+                            conexao.numeracao++;
+                            txt_numeracao.Text = conexao.numeracao.ToString();
+
+                        }
+                        else
+                        {
+                            txt_numeracao.Text = "0";
+                        }
+
+                    }
+                    break;
                 }
-                else
-                {
-                    txt_numeracao.Text = numeracao.ToString();
-                }
-                foreach (Fazendeiro str in Program.usuarios)
-                {
-                    txt_marca.Text = str.Marca.ToString();
-                }
+
+
+
             }
             catch (Exception ex)
             {
 
             }
-            
-           
+
+
 
 
         }
@@ -67,14 +78,20 @@ namespace Venda_Bovina
 
         private void button1_Click(object sender, EventArgs e)
         {
+            foreach (Fazendeiro str2 in Program.usuarioOnline)
+            {
+                foreach (Cadastro_Rebanho str3 in Program.rebanho)
+                {
+                    if (str3.marca == str2.Marca)
+                    {
+                        txt_numeracao.Text = conexao.numeracao--.ToString();
+                    }
 
-            FormInicial conexao = new FormInicial();
+                }
+            }
+            FormInicial conexao1 = new FormInicial();
             this.Close();
-            conexao.Visible = true;
-
-
-
-
+            conexao1.Visible = true;
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -83,14 +100,14 @@ namespace Venda_Bovina
 
         public void btnVendas_Click(object sender, EventArgs e)
         {
-           
-            Lista();         
+            Lista(fotocaminho);
         }
 
-        public void Lista()
+        public void Lista(string caminhofoto)
         {
             try
             {
+                string foto = fotocaminho;
                 string animal = combo_tipos.Text;
                 string sexo = combo_sexo.Text;
                 string raca = txt_raca.Text;
@@ -98,13 +115,15 @@ namespace Venda_Bovina
                 double comprimento = Convert.ToDouble(txt_comprimento.Text);
                 string coloracao = combo_coloracao.Text;
                 string registro = combo_registro.Text;
+                int numeracao = Convert.ToInt32(txt_numeracao.Text);
+
                 double altura = Convert.ToDouble(txt_altura.Text);
                 string marca = txt_marca.Text;
                 double genetica = Convert.ToDouble(txt_genetica.Text);
                 double peso = Convert.ToDouble(txt_peso.Text);
                 double preco = Cadastro_Rebanho.PrecoRebanho(peso, animal, sexo, idade, genetica);
 
-                Cadastro_Rebanho conexao = new Cadastro_Rebanho(numeracao, animal, sexo, Cadastro_Rebanho.Sexo(animal, sexo, idade), raca, idade, comprimento, coloracao, registro, altura, marca, genetica, preco, peso);
+                Cadastro_Rebanho conexao = new Cadastro_Rebanho(foto, numeracao, animal, sexo, Cadastro_Rebanho.Sexo(animal, sexo, idade), raca, idade, comprimento, coloracao, registro, altura, marca, genetica, preco, peso);
                 Program.rebanho.Add(conexao);
 
 
@@ -112,17 +131,17 @@ namespace Venda_Bovina
                     MessageBox.Show("Salvo");
 
 
-                numeracao++;
+
 
                 FormRebanho conexao1 = new FormRebanho();
                 this.Close();
                 conexao1.ShowDialog();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Preencha todas as informações corretamente!");
             }
-                
+
         }
 
 
@@ -155,16 +174,22 @@ namespace Venda_Bovina
                 if (File.Exists(destinoCompleto))
                 {
 
-                    btn_imagem.BackgroundImage = Image.FromFile(destinoCompleto);
+                    //btn_imagem.BackgroundImage = Image.FromFile(destinoCompleto);
+                    btn_imagem.BackgroundImage = Image.FromFile(origemCompleto);
                     btn_imagem.BackgroundImageLayout = ImageLayout.Stretch;
 
+                    MessageBox.Show("destino: "  + destinoCompleto);
+
                     Program.botaoFoto.Add(btn_imagem);
+                    fotocaminho = origemCompleto;
                     MessageBox.Show("Imagem adicionada com sucesso!");
                 }
                 else
                 {
                     MessageBox.Show("Arquivo nao copiado!");
                 }
+
+                
             }
             catch (Exception ex)
             {

@@ -11,6 +11,8 @@ namespace Venda_Bovina
         public static List<Button> botaoFoto = new List<Button>();
         public static List<Button> botaoFotoUsuario = new List<Button>();
         public static List<Fazendeiro> usuarios = new List<Fazendeiro>();
+        public static List<Fazendeiro> usuarioOnline = new List<Fazendeiro>();
+        public static List<string> caminhoFoto = new List<string>();
 
 
         /// <summary>
@@ -19,12 +21,13 @@ namespace Venda_Bovina
         [STAThread]
         static void Main()
         {
-                rebanho = Cadastro_Rebanho.JsonDesserealizarLista("C:\\Users\\proco\\source\\repos\\Venda Bovina\\Venda Bovina\\Banco.json");
+            usuarios = Fazendeiro.JsonDesserealizarListaUsuario("C:\\Users\\proco\\source\\repos\\Venda Bovina\\Venda Bovina\\Banco Usuario.json");
+            rebanho = Cadastro_Rebanho.JsonDesserealizarLista("C:\\Users\\proco\\source\\repos\\Venda Bovina\\Venda Bovina\\Banco.json");
             
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormCadastroUsuario());
+            Application.Run(new FormLoginUsuario());
 
         }
     }

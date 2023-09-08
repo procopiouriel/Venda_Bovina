@@ -15,6 +15,7 @@ namespace Venda_Bovina
     public partial class FormCadastroUsuario : Form
     {
         public Fazendeiro conexao1 = new Fazendeiro();
+        public string fotoUser;
         public FormCadastroUsuario()
         {
             InitializeComponent();
@@ -51,8 +52,9 @@ namespace Venda_Bovina
         {
             try
             {
-                
+
                 string nome = txt_nome.Text;
+                var senha = txt_senha.Text;
                 int idade = Convert.ToInt32(txt_idade.Text);
                 string cpf = txt_cpf.Text;
                 string cnpj = txt_cnpj.Text;
@@ -63,7 +65,7 @@ namespace Venda_Bovina
                 if (ValidaCNPJ.IsCnpj(cnpj) == false || Validacoes.ValidaCPF(cpf) == false)//SE O CNPJ FOR FALSO
                 {
                     MessageBox.Show("CNPJ ou CPF invalido!");
-                   
+
                 }
                 else
                 {
@@ -73,19 +75,25 @@ namespace Venda_Bovina
                     }
                     else
                     {
-                        Fazendeiro conexao = new Fazendeiro(nome, idade, cpf, cnpj, areaTerreno, quantidadeCabecas, marca);
+                        Fazendeiro conexao = new Fazendeiro(fotoUser, nome, senha, idade, cpf, cnpj, areaTerreno, quantidadeCabecas, marca);
                         Program.usuarios.Add(conexao);
+                        Program.usuarioOnline.Add(conexao);
 
+
+                        if (conexao.JsonSerealizarListaUsuario(Program.usuarios, @"C:\Users\proco\source\repos\Venda Bovina\Venda Bovina\Banco Usuario.json"))
+                            MessageBox.Show("Salvo");
+
+                       
 
                         FormInicial conexao1 = new FormInicial();
                         this.Visible = false;
                         conexao1.ShowDialog();
                     }
                 }
-               
 
 
-              
+
+
             }
             catch (Exception error)
             {
@@ -131,7 +139,7 @@ namespace Venda_Bovina
             {
 
             }
-            
+
 
 
         }
@@ -163,7 +171,7 @@ namespace Venda_Bovina
             {
 
             }
-           
+
 
 
         }
@@ -216,10 +224,11 @@ namespace Venda_Bovina
                 if (File.Exists(destinoCompleto))
                 {
 
-                    btn_fotoUsuario.BackgroundImage = Image.FromFile(destinoCompleto);
+                    btn_fotoUsuario.BackgroundImage = Image.FromFile(origemCompleto);
                     btn_fotoUsuario.BackgroundImageLayout = ImageLayout.Stretch;
-
+                    fotoUser = origemCompleto;
                     Program.botaoFotoUsuario.Add(btn_fotoUsuario);
+
                     MessageBox.Show("Imagem adicionada com sucesso!");
                 }
                 else
@@ -234,6 +243,18 @@ namespace Venda_Bovina
         }
 
         private void img_cpf_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormLoginUsuario conexao = new FormLoginUsuario();
+            this.Visible = false;
+            conexao.ShowDialog();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
         {
 
         }
